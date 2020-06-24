@@ -1,7 +1,11 @@
 export const getters = {
-todoList:"todoList"
-}
+  todoList: "todoList",
+};
 
-export default  {
-  [getters.todoList]:state => state.todoList
-}
+export default {
+  /**
+   * Return todo list
+   * @return {[]}
+   */
+  [getters.todoList]: (state) => state.todoList,
+};
