@@ -3,10 +3,11 @@ import Vuex from "vuex";
 import mutations from "./mutations";
 import actions from "./actions";
 import getters from "./getters";
+import { Todo } from "@/models/Todo";
 Vue.use(Vuex);
 
 const state = {
-  todoList:[]
+  todoList: [] as Todo[],
 };
 
 export default new Vuex.Store({

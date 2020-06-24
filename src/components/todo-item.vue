@@ -25,32 +25,22 @@
         color="error" 
         @click="deleteList(list)">
         Delete
-      </v-btn> 
+      </v-btn>
     </v-card>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { mapActions, mapGetters } from "vuex";
 import { getters } from "@/store/getters";
 import { actionTypes } from "@/store/actions";
 
 export default {
-  data() {
-    return {
-      todos: [],
-    };
-  },
-
   computed: {
     ...mapGetters([getters.todoList]),
   },
   methods: {
-    ...mapActions([
-      actionTypes.deleteList,
-      actionTypes.completeList,
-      actionTypes.editList,
-    ]),
+    ...mapActions([actionTypes.deleteList, actionTypes.completeList]),
   },
 };
 </script>

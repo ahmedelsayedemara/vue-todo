@@ -8,27 +8,29 @@
   />
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import { mapActions } from "vuex";
 import { actionTypes } from "@/store/actions";
-export default {
+import { Todo } from '../models/Todo';
+export default Vue.extend({
   data() {
     return {
-      todoList: null
+      todoList: "" as string,
     };
   },
   methods: {
     ...mapActions([actionTypes.addList]),
-    handleSubmit(todoList) {
-      const list = todoList.trim()
-      if(!list) {
-        return false
+    handleSubmit(todoList: string) {
+      const list = todoList.trim();
+      if (!list) {
+        return false;
       }
       this.addList(list);
-      this.todoList =""
+      this.todoList = "";
     },
   },
-};
+});
 </script>
 
 <style lang="css"></style>

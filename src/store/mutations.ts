@@ -1,3 +1,4 @@
+import { Todo } from "@/models/Todo";
 export const mutations = {
   ADD_LIST: "ADD_LIST",
   EDIT_LIST: "EDIT_LIST",
@@ -6,16 +7,16 @@ export const mutations = {
 };
 
 export default {
-  [mutations.ADD_LIST]: (state, list) =>
+  [mutations.ADD_LIST]: (state: any, list: String) =>
     state.todoList.push({
       title: list,
       complete: false,
     }),
 
-  [mutations.DELETE_LIST]: (state, list) =>
+  [mutations.DELETE_LIST]: (state: any, list: Todo) =>
     state.todoList.splice(state.todoList.indexOf(list), 1),
 
-  [mutations.COMPLETE_LIST]: (state, list) => {
+  [mutations.COMPLETE_LIST]: (state: any, list: Todo) => {
     list.complete = !list.complete;
   },
 };

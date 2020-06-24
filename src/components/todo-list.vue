@@ -4,8 +4,8 @@
   </div>
 </template>
 
-<script>
-import TodoItem from '@/components/todo-item';
+<script lang="ts">
+import TodoItem from '@/components/todo-item.vue';
 
 export default {
   components: {
