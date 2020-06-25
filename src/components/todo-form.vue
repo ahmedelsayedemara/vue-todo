@@ -1,7 +1,7 @@
 <template lang="html">
   <v-text-field
     v-model="todoList"
-    @keyup.enter="handleSubmit(todoList)"
+    @keyup.enter="add(todoList)"
     label="Todo"
     placeholder="What do you have to do?"
     solo
@@ -10,9 +10,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { mapActions } from "vuex";
-import { actionTypes } from "@/store/actions";
-import { Todo } from '../models/Todo';
+import Todo from "@/models/Todo";
 export default Vue.extend({
   data() {
     return {
@@ -20,13 +18,14 @@ export default Vue.extend({
     };
   },
   methods: {
-    ...mapActions([actionTypes.addList]),
-    handleSubmit(todoList: string) {
-      const list = todoList.trim();
-      if (!list) {
+    add(title) {
+      const data = { title: title.trim(), complete: false };
+      if (!data.title) {
         return false;
       }
-      this.addList(list);
+      Todo.insert({
+        data,
+      });
       this.todoList = "";
     },
   },

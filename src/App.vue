@@ -21,19 +21,19 @@
 </template>
 
 <script lang="ts">
-import TodoForm from '@/components/todo-form.vue'
-import TodoList from '@/components/todo-list.vue'
+import TodoForm from "@/components/todo-form.vue";
+import TodoList from "@/components/todo-list.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     TodoForm,
     TodoList,
   },
   data () {
     return {
-      title: 'Vue Todos'
-    }
+      title: "Vue Todos"
+    };
   }
-}
+};
 </script>
