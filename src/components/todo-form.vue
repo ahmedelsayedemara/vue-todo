@@ -18,6 +18,11 @@ export default Vue.extend({
     };
   },
   methods: {
+    /**
+     * Add todo
+     * @param (title)
+     */
+    
     add(title) {
       const data = { title: title.trim(), complete: false };
       if (!data.title) {

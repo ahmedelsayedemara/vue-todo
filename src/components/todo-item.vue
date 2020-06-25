@@ -1,34 +1,32 @@
 <template lang="html">
-  <div>
-    <div v-if="todoList.length">
-      <v-card 
-        v-for="todo in todoList" 
-        :key="todo.id" 
-        class="mb-3">
-        <v-card-title primary-title>
-          <div>
-            <h3 
-              class="headline mb-0" 
-              :class="{ completed: todo.complete }">
-              {{ todo.title }}
-            </h3>
-          </div>
-        </v-card-title>
-        <v-btn @click="toggleTodo(todo)">
-          <span v-if="todo.complete">
-            Uncompleted
-          </span>
-          <span v-else>
-            Complete
-          </span>
-        </v-btn>
-        <v-btn 
-          color="error" 
-          @click="deleteTodo(todo)">
-          Delete
-        </v-btn>
-      </v-card>
-    </div>
+  <div v-if="todoList.length">
+    <v-card>
+      <v-list class="py-0">
+        <div 
+          v-for="(todo, index) in todoList" 
+          :key="todo.id">
+          <v-list-tile>
+            <v-list-tile-action>
+              <v-checkbox @change="toggleTodo(todo)" />
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title :class="{ completed: todo.complete }">{{
+                todo.title
+              }}</v-list-tile-title>
+            </v-list-tile-content>
+            <v-list-tile-action>
+              <v-btn 
+                color="error" 
+                small 
+                @click="deleteTodo(todo)">
+                delete
+              </v-btn>
+            </v-list-tile-action>
+          </v-list-tile>
+          <v-divider v-if="index + 1 < todoList.length" />
+        </div>
+      </v-list>
+    </v-card>
   </div>
 </template>
 
@@ -62,9 +60,12 @@ export default {
 };
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
+::v-deep .v-input__slot{
+  margin-bottom: 0;
+}
 .completed {
-    color: #acacac;
-    text-decoration: line-through;
+  color: #acacac;
+  text-decoration: line-through;
 }
 </style>
