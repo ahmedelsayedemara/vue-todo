@@ -17,6 +17,7 @@
       "./node_modules/vuetify/types"
     ],
     "types": [
+      "node",
       "webpack-env",
       "vuetify"
     ],
@@ -26,6 +27,7 @@
       ]
     },
     "lib": [
+      "es2015",
       "esnext",
       "dom",
       "dom.iterable",
@@ -37,8 +39,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx",
-    "src/plugins/vuetify.ts"
+    "tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules"
